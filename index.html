@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus Aniversários</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Meus Aniversários</h1>
+    <div id="form">
+      <form>
+        <label for="inputNome"
+          >Nome da pessoa <span>(campo obrigatório)</span></label
+        >
+        <input
+          type="text"
+          placeholder="Digite o nome da pessoa aqui, por exemplo: João ou Maria"
+          id="inputNome"
+          required
+        />
+        <span id="msgErroNome" class="msgErro"
+          >O nome precrisa ter pelo menos três letras e no máximo cento e vinte,
+          não é possível informar números.
+        </span>
+        <br />
+        <label for="inputData"
+          >Data de nascimento <span>(campo obrigatório)</span></label
+        >
+        <input
+          type="text"
+          placeholder="Digite a data da pessoa aqui, por exemplo: 28/01/2002"
+          id="inputData"
+          onkeydown="onlyNumber(event)"
+          onkeyup="maskData(this)"
+          maxlength="10"
+          required
+        />
+        <span id="msgErroData" class="msgErro"
+          >A data precisa estar no formato de DD/MM/AAAA
+        </span>
+        <input
+          type="button"
+          value="Salvar"
+          id="btnSalvar"
+          onclick="conferirFormulario()"
+        />
+      </form>
+    </div>
+    <div id="tabela">
+      <table>
+        <thead>
+          <tr>
+            <td class="tableNome">Nome</td>
+            <td class="tableData">Data de nascimento</td>
+            <td>Ações</td>
+          </tr>
+        </thead>
+        <tbody id="contBody"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
