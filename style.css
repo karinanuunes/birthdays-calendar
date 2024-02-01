@@ -17,13 +17,19 @@ h1 {
   padding: 50px;
 }
 
+#form,
+#tabela {
+  display: flex;
+  justify-content: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
   padding: 30px;
   gap: 5px;
 
-  max-width: 600px;
+  width: 600px;
 }
 
 form span {
@@ -79,11 +85,15 @@ td {
 }
 
 .btnEditar {
+  background-color: transparent;
+  border: none;
   color: #888888;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 .btnDeletar {
+  background-color: transparent;
+  border: none;
   color: #fa3232;
-  text-decoration: none;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
+let agenda = [];
+
 function conferirFormulario() {
-  const btnSalvar = document.getElementById("btnSalvar");
   const inputNome = document.getElementById("inputNome").value;
   const inputData = document.getElementById("inputData").value;
   const msgErroNome = document.getElementById("msgErroNome");
@@ -12,6 +13,7 @@ function conferirFormulario() {
     msgErroData.style.display = "flex";
   }
 
+  guardarDados();
   enviarFormulario();
 }
 
@@ -36,15 +38,38 @@ function enviarFormulario() {
   const inputNome = document.getElementById("inputNome").value;
   const inputData = document.getElementById("inputData").value;
   const contBody = document.getElementById("contBody");
+  let id = 1;
 
   contBody.innerHTML += `
   <tr>
-    <td>${inputNome}</td>
+    <td id="nome">${inputNome}</td>
     <td>${inputData}</td>
     <td>
-      <a href="/editar" class="btnEditar">Editar</a>
-      <a href="/deletar" class="btnDeletar">Deletar</a>
+      <button class="btnEditar">Editar</button>
+      <button class="btnDeletar">Deletar</button>
     </td>
   </tr>
   `;
+
+  id++;
 }
+
+function guardarDados() {
+  const nome = document.getElementById("inputNome").value;
+  const data = document.getElementById("inputData").value;
+
+  const btnSalvar = document.getElementById("btnSalvar");
+  btnSalvar.addEventListener("click", () => {
+    agenda.push({ nome, data });
+  });
+  localStorage.setItem("pessoas", JSON.stringify(agenda));
+  agenda = JSON.parse(localStorage.getItem("pessoas"));
+}
+
+// function editarAniversario() {
+//   const editarButton = document.getElementsByClassName("btnEditar");
+//   editarButton.addEventListener("click", () => {
+//     console.log(editarButton);
+//   });
+// }
+// editarAniversario();
