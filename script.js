@@ -20,18 +20,25 @@ function maskData(inputData) {
 function conferirFormulario() {
   const inputNome = document.getElementById("inputNome").value;
   const inputData = document.getElementById("inputData").value;
-  const msgErroNome = document.getElementById("msgErroNome");
-  const msgErroData = document.getElementById("msgErroData");
+  const campoNome = document.getElementById("campoNome");
+  const campoData = document.getElementById("campoData");
 
   if (inputNome.length < 3 || inputNome.length > 120) {
-    msgErroNome.style.display = "flex";
+    const msgErroNome = document.createElement("span");
+    msgErroNome.classList.add("msgErro");
+    msgErroNome.innerHTML = `O nome precrisa ter pelo menos três letras e no máximo cento e vinte,
+    não é possível informar números.`;
+    campoNome.appendChild(msgErroNome);
   }
   if (inputData.length < 10) {
-    msgErroData.style.display = "flex";
+    const msgErroData = document.createElement("span");
+    msgErroData.classList.add("msgErro");
+    msgErroData.innerHTML = `A data precisa estar no formato de DD/MM/AAAA`;
+    campoData.appendChild(msgErroData);
+  } else {
+    guardarDados();
+    enviarFormulario();
   }
-
-  guardarDados();
-  enviarFormulario();
 }
 
 let id = 1;
@@ -55,6 +62,9 @@ function enviarFormulario() {
 
   id++;
 
+  document.getElementById("inputNome").value = "";
+  document.getElementById("inputData").value = "";
+
   apagarAniversario();
 }
 
@@ -62,10 +72,7 @@ function guardarDados() {
   const nome = document.getElementById("inputNome").value;
   const data = document.getElementById("inputData").value;
 
-  const btnSalvar = document.getElementById("btnSalvar");
-  btnSalvar.addEventListener("click", () => {
-    agenda.push({ nome, data });
-  });
+  agenda.push({ nome, data });
 
   localStorage.setItem("aniversarios", JSON.stringify(agenda));
   agenda = JSON.parse(localStorage.getItem("aniversarios"));
@@ -77,12 +84,6 @@ function apagarAniversario() {
   editarButton.forEach((button) => {
     button.addEventListener("click", () => {
       const row = event.target.closest("tr");
-      const nome = row.querySelector("#nome").textContent;
-      const data = row.querySelectorAll("td")[1].textContent;
-
-      document.getElementById("inputNome").value = nome;
-      document.getElementById("inputData").value = data;
-
       row.remove();
     });
   });

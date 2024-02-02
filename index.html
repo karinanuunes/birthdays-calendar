@@ -11,35 +11,31 @@
     <h1>Meus Aniversários</h1>
     <div id="form">
       <form>
-        <label for="inputNome"
-          >Nome da pessoa <span>(campo obrigatório)</span></label
-        >
-        <input
-          type="text"
-          placeholder="Digite o nome da pessoa aqui, por exemplo: João ou Maria"
-          id="inputNome"
-          required
-        />
-        <span id="msgErroNome" class="msgErro"
-          >O nome precrisa ter pelo menos três letras e no máximo cento e vinte,
-          não é possível informar números.
-        </span>
-        <br />
-        <label for="inputData"
-          >Data de nascimento <span>(campo obrigatório)</span></label
-        >
-        <input
-          type="text"
-          placeholder="Digite a data da pessoa aqui, por exemplo: 28/01/2002"
-          id="inputData"
-          onkeydown="onlyNumber(event)"
-          onkeyup="maskData(this)"
-          maxlength="10"
-          required
-        />
-        <span id="msgErroData" class="msgErro"
-          >A data precisa estar no formato de DD/MM/AAAA
-        </span>
+        <div id="campoNome">
+          <label for="inputNome"
+            >Nome da pessoa <span>(campo obrigatório)</span></label
+          >
+          <input
+            type="text"
+            placeholder="Digite o nome da pessoa aqui, por exemplo: João ou Maria"
+            id="inputNome"
+            required
+          />
+        </div>
+        <div id="campoData">
+          <label for="inputData"
+            >Data de nascimento <span>(campo obrigatório)</span></label
+          >
+          <input
+            type="text"
+            placeholder="Digite a data da pessoa aqui, por exemplo: 28/01/2002"
+            id="inputData"
+            onkeydown="onlyNumber(event)"
+            onkeyup="maskData(this)"
+            maxlength="10"
+            required
+          />
+        </div>
         <input
           type="button"
           value="Salvar"
