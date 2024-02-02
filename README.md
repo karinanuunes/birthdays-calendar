@@ -15,3 +15,4 @@ Este é um simples aplicativo para gerenciar aniversários. Ele permite adiciona
 Este é um projeto simples para demonstrar funcionalidades básicas de JavaScript para gerenciamento de dados de forma dinâmica em uma página web. Sinta-se à vontade para expandir e personalizar conforme necessário.
 
 Desenvolvido por Karina Nunes ✨
+#7DaysOfCode
