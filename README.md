@@ -2,8 +2,8 @@
 Este é um simples aplicativo para gerenciar aniversários. Ele permite adicionar e excluir aniversários, além de validar os dados inseridos.
 
 ## Funcionalidades
-Adicionar Aniversário: Permite adicionar um novo aniversário à lista.
-Excluir Aniversário: Permite excluir um aniversário da lista.
+- Adicionar Aniversário: Permite adicionar um novo aniversário à lista.
+- Excluir Aniversário: Permite excluir um aniversário da lista.
 
 ## Funcionalidades Planejadas
 - Melhorias na interface do usuário.
